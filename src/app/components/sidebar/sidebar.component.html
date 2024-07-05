@@ -1,0 +1,25 @@
+<div class="sidebar">
+  <div class="heading-container">
+    <h2 class="title">
+      Select cruise:
+    </h2>
+  </div>
+
+  <div class="content">
+    <button class="filters-toggler" (click)="toggleFiltersVisibility()">
+      <img src="./assets/filters-icon.svg" alt="Toggle filters visibility">
+      {{shouldFiltersByDisplayed ? 'hide' : 'show'}} filters
+    </button>
+    @if (shouldFiltersByDisplayed) {
+      <app-filters></app-filters>
+    }
+    <ul class="cruises-list">
+      @for (cruise of cruises(); track cruise) {
+        <li class="cruise" (click)="displayCruise(cruise)" (mouseenter)="highlightCruise(cruise)" (mouseleave)="removePortHighlight()">
+          <p class="destination">{{ cruise.fromPort }} - {{ cruise.toPort }}</p>
+          <p class="duration">{{getCruiseDuration(cruise)}}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</div>

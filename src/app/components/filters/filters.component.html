@@ -1,0 +1,11 @@
+<form class="filters-container" [formGroup]="filtersForm">
+  <h3>Port name:</h3>
+  <input class="port-name-filter" type="text" formControlName="portNameFilter" placeholder="filter by port">
+  <h3>Leg duration (hours):</h3>
+  <div class="duration-filters">
+    <input class="duration-filter" type="number" placeholder="from" formControlName="minDurationFilter"> - <input class="duration-filter"
+                                                                                                                  type="number"
+                                                                                                                  placeholder="to"
+                                                                                                                  formControlName="maxDurationFilter">
+  </div>
+</form>

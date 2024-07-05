@@ -1,8 +1,12 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
 
-import { routes } from './app.routes';
+import { APP_STORE_PROVIDERS } from './app.store';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]
+  providers: [
+    provideHttpClient(),
+    ...APP_STORE_PROVIDERS,
+    provideZoneChangeDetection({ eventCoalescing: true })
+  ]
 };
